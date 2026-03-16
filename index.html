@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zack Rodman | Math Tutoring — Northern Virginia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #1a1a2e;
+    --chalk: #f8f6f1;
+    --slate: #3d3d5c;
+    --accent: #2a6b4a;
+    --accent-light: #e8f2ec;
+    --warm: #c9a84c;
+    --warm-light: #faf5e8;
+    --rule: #d8d4cc;
+    --body-text: #4a4a60;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--chalk);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 2.5rem;
+    background: rgba(248,246,241,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--ink);
+    letter-spacing: .01em;
+  }
+  nav .logo span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav a {
+    text-decoration: none;
+    color: var(--slate);
+    font-size: .88rem;
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  nav a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 2.5rem 3rem;
+    gap: 3rem;
+  }
+  .hero-text { max-width: 540px; justify-self: end; padding-right: 1rem; }
+  .hero-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  .hero-text h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero-text p {
+    font-size: 1.05rem;
+    color: var(--body-text);
+    margin-bottom: 2rem;
+    max-width: 440px;
+  }
+  .btn {
+    display: inline-block;
+    padding: .85rem 2.2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all .25s;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: 2px solid var(--accent);
+  }
+  .btn-primary:hover {
+    background: #1e5438;
+    border-color: #1e5438;
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    margin-left: .75rem;
+  }
+  .btn-outline:hover {
+    background: var(--accent-light);
+  }
+  .hero-image {
+    position: relative;
+    justify-self: start;
+  }
+  .hero-image img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.12);
+  }
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 12px -12px -12px 12px;
+    border: 2px solid var(--warm);
+    border-radius: 8px;
+    z-index: -1;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 5rem 2.5rem; }
+  .section-label {
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .6rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    background: #fff;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    align-items: center;
+  }
+  .about-photo img {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.08);
+  }
+  .about-content p {
+    color: var(--body-text);
+    font-size: .98rem;
+    margin-bottom: 1rem;
+  }
+  .cred-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin-top: 1.25rem;
+  }
+  .cred {
+    display: inline-block;
+    padding: .4rem 1rem;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    border-radius: 3px;
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  /* ── SUBJECTS ── */
+  .subjects { max-width: 900px; margin: 0 auto; }
+  .subject-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-top: .5rem;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: box-shadow .25s, transform .25s;
+  }
+  .card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,.07);
+    transform: translateY(-3px);
+  }
+  .card-icon {
+    font-size: 1.6rem;
+    margin-bottom: .6rem;
+  }
+  .card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    margin-bottom: .4rem;
+  }
+  .card p {
+    font-size: .82rem;
+    color: var(--body-text);
+    line-height: 1.5;
+  }
+
+  /* ── GALLERY ── */
+  .gallery {
+    background: var(--ink);
+    color: #fff;
+    text-align: center;
+  }
+  .gallery .section-label { color: var(--warm); }
+  .gallery .section-title { color: #fff; }
+  .gallery-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .gallery-row img {
+    width: 100%;
+    border-radius: 6px;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+  .contact p {
+    color: var(--body-text);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+  .contact-email {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 2px solid var(--warm);
+    padding-bottom: 2px;
+    transition: color .2s;
+  }
+  .contact-email:hover { color: var(--ink); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: .78rem;
+    color: var(--body-text);
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: .8rem 1.2rem; }
+    nav ul { gap: 1rem; }
+    nav a { font-size: .76rem; }
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 5.5rem 1.5rem 3rem;
+    }
+    .hero-text { justify-self: center; padding-right: 0; }
+    .hero-text p { margin-left: auto; margin-right: auto; }
+    .hero-image { justify-self: center; }
+    .hero-image img { max-width: 360px; }
+    .about-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .about-photo img { max-width: 240px; margin: 0 auto; }
+    .cred-list { justify-content: center; }
+    .gallery-row { grid-template-columns: 1fr; }
+    .btn-outline { margin-left: 0; margin-top: .6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Zack <span>Rodman</span> Tutoring</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#subjects">Subjects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Math tutoring that <em>actually clicks.</em></h1>
+    <p>Experienced teacher and career-switcher bringing 20+ years of real-world problem&#8209;solving into middle&nbsp;school math — right here in Northern&nbsp;Virginia.</p>
+    <a href="mailto:ZJRTutoring@gmail.com" class="btn btn-primary">Get in Touch</a>
+    <a href="#about" class="btn btn-outline">Learn More</a>
+  </div>
+  <div class="hero-image">
+    <img src="teaching.jpg" alt="Zack Rodman teaching math to students in the classroom">
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="headshot.jpg" alt="Zack Rodman, Math Tutor">
+    </div>
+    <div class="about-content">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Hi, I'm Zack.</h2>
+      <p>I hold a <strong>Virginia Secondary Mathematics teaching license</strong> and a Master of Education from Marymount University. Before entering the classroom, I spent two decades in analytics, consulting, and operations — so I know what it means to think through tough problems.</p>
+      <p>I've taught Math 7 and Math 8 in Falls Church City Public Schools, and I tutor students across grades 6–9 in the Arlington and NoVA area. My goal is straightforward: make math make sense.</p>
+      <div class="cred-list">
+        <span class="cred">M.Ed., Secondary Mathematics</span>
+        <span class="cred">VA Teaching License</span>
+        <span class="cred">MBA, Emory University</span>
+        <span class="cred">Phi Kappa Phi</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBJECTS -->
+<section id="subjects">
+  <div class="subjects">
+    <div class="section-label">What I Tutor</div>
+    <h2 class="section-title">Grades 6 through Algebra&nbsp;1</h2>
+    <div class="subject-cards">
+      <div class="card">
+        <div class="card-icon">📐</div>
+        <h3>Math 6 &amp; 7</h3>
+        <p>Ratios, proportions, integers, expressions &amp; equations</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Math 8</h3>
+        <p>Linear functions, geometry, data analysis &amp; probability</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">✏️</div>
+        <h3>Pre-Algebra</h3>
+        <p>Building the bridge to high school math with confidence</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔢</div>
+        <h3>Algebra 1</h3>
+        <p>Equations, inequalities, functions &amp; SOL prep</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="section-label">In Action</div>
+  <h2 class="section-title">Classroom &amp; Beyond</h2>
+  <div class="gallery-row">
+    <img src="teaching.jpg" alt="Teaching percent problems on the board">
+    <img src="family.jpg" alt="Zack hiking with family in the mountains">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="section-label">Let's Talk</div>
+  <h2 class="section-title">Ready to get started?</h2>
+  <p>I offer one-on-one and small-group sessions in Northern Virginia. Drop me a line and we'll find a time that works.</p>
+  <a href="mailto:ZJRTutoring@gmail.com" class="contact-email">ZJRTutoring@gmail.com</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2026 Zack Rodman Tutoring &middot; Arlington, VA
+</footer>
+
+</body>
+</html>
