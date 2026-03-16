@@ -3,22 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zack Rodman | Math Tutoring — Northern Virginia</title>
+<title>ZJR Tutoring</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --ink: #1a1a2e;
-    --chalk: #f8f6f1;
-    --slate: #3d3d5c;
-    --accent: #2a6b4a;
-    --accent-light: #e8f2ec;
-    --warm: #c9a84c;
-    --warm-light: #faf5e8;
-    --rule: #d8d4cc;
-    --body-text: #4a4a60;
+    --ink: #1e2330;
+    --white: #ffffff;
+    --off-white: #f9fafb;
+    --blue: #2563a8;
+    --blue-dark: #1b4a80;
+    --blue-light: #e9f1fa;
+    --orange: #e07832;
+    --orange-dark: #c4641e;
+    --orange-light: #fef3ea;
+    --body-text: #4b5264;
+    --rule: #e2e5eb;
   }
 
   html { scroll-behavior: smooth; }
@@ -26,7 +28,7 @@
   body {
     font-family: 'DM Sans', sans-serif;
     color: var(--ink);
-    background: var(--chalk);
+    background: var(--white);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
@@ -36,7 +38,7 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
     padding: 1rem 2.5rem;
-    background: rgba(248,246,241,.92);
+    background: rgba(255,255,255,.94);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--rule);
   }
@@ -46,18 +48,18 @@
     color: var(--ink);
     letter-spacing: .01em;
   }
-  nav .logo span { color: var(--accent); }
+  nav .logo span { color: var(--blue); }
   nav ul { list-style: none; display: flex; gap: 2rem; }
   nav a {
     text-decoration: none;
-    color: var(--slate);
+    color: var(--body-text);
     font-size: .88rem;
     font-weight: 500;
     letter-spacing: .04em;
     text-transform: uppercase;
     transition: color .2s;
   }
-  nav a:hover { color: var(--accent); }
+  nav a:hover { color: var(--orange); }
 
   /* ── HERO ── */
   .hero {
@@ -67,6 +69,7 @@
     align-items: center;
     padding: 6rem 2.5rem 3rem;
     gap: 3rem;
+    background: var(--white);
   }
   .hero-text { max-width: 540px; justify-self: end; padding-right: 1rem; }
   .hero-text h1 {
@@ -78,7 +81,7 @@
   }
   .hero-text h1 em {
     font-style: normal;
-    color: var(--accent);
+    color: var(--orange);
   }
   .hero-text p {
     font-size: 1.05rem;
@@ -99,22 +102,22 @@
     transition: all .25s;
   }
   .btn-primary {
-    background: var(--accent);
+    background: var(--orange);
     color: #fff;
-    border: 2px solid var(--accent);
+    border: 2px solid var(--orange);
   }
   .btn-primary:hover {
-    background: #1e5438;
-    border-color: #1e5438;
+    background: var(--orange-dark);
+    border-color: var(--orange-dark);
   }
   .btn-outline {
     background: transparent;
-    color: var(--accent);
-    border: 2px solid var(--accent);
+    color: var(--blue);
+    border: 2px solid var(--blue);
     margin-left: .75rem;
   }
   .btn-outline:hover {
-    background: var(--accent-light);
+    background: var(--blue-light);
   }
   .hero-image {
     position: relative;
@@ -122,15 +125,15 @@
   }
   .hero-image img {
     width: 100%;
-    max-width: 480px;
+    max-width: 400px;
     border-radius: 8px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.12);
+    box-shadow: 0 20px 50px rgba(0,0,0,.1);
   }
   .hero-image::after {
     content: '';
     position: absolute;
     inset: 12px -12px -12px 12px;
-    border: 2px solid var(--warm);
+    border: 2px solid var(--orange);
     border-radius: 8px;
     z-index: -1;
   }
@@ -142,7 +145,7 @@
     font-weight: 600;
     letter-spacing: .14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--blue);
     margin-bottom: .6rem;
   }
   .section-title {
@@ -152,9 +155,42 @@
     color: var(--ink);
   }
 
+  /* ── QUOTE ── */
+  .quote-section {
+    background: var(--blue);
+    color: #fff;
+    text-align: center;
+    padding: 3.5rem 2.5rem;
+  }
+  .quote-section blockquote {
+    max-width: 720px;
+    margin: 0 auto;
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+    line-height: 1.5;
+    position: relative;
+  }
+  .quote-section blockquote::before {
+    content: '\201C';
+    font-size: 4rem;
+    color: var(--orange);
+    position: absolute;
+    top: -.5rem;
+    left: -1.5rem;
+    line-height: 1;
+  }
+  .quote-attribution {
+    margin-top: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: .88rem;
+    font-weight: 500;
+    color: rgba(255,255,255,.7);
+    letter-spacing: .04em;
+  }
+
   /* ── ABOUT ── */
   .about {
-    background: #fff;
+    background: var(--off-white);
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
   }
@@ -189,8 +225,8 @@
     font-weight: 600;
     letter-spacing: .04em;
     border-radius: 3px;
-    background: var(--accent-light);
-    color: var(--accent);
+    background: var(--blue-light);
+    color: var(--blue);
   }
 
   /* ── SUBJECTS ── */
@@ -202,7 +238,7 @@
     margin-top: .5rem;
   }
   .card {
-    background: #fff;
+    background: var(--white);
     border: 1px solid var(--rule);
     border-radius: 6px;
     padding: 1.5rem;
@@ -212,6 +248,7 @@
   .card:hover {
     box-shadow: 0 8px 24px rgba(0,0,0,.07);
     transform: translateY(-3px);
+    border-color: var(--orange);
   }
   .card-icon {
     font-size: 1.6rem;
@@ -230,12 +267,11 @@
 
   /* ── GALLERY ── */
   .gallery {
-    background: var(--ink);
-    color: #fff;
+    background: var(--off-white);
     text-align: center;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
   }
-  .gallery .section-label { color: var(--warm); }
-  .gallery .section-title { color: #fff; }
   .gallery-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -248,6 +284,7 @@
     border-radius: 6px;
     aspect-ratio: 16/10;
     object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0,0,0,.08);
   }
 
   /* ── CONTACT ── */
@@ -265,13 +302,13 @@
   .contact-email {
     font-family: 'DM Serif Display', serif;
     font-size: 1.4rem;
-    color: var(--accent);
+    color: var(--blue);
     text-decoration: none;
-    border-bottom: 2px solid var(--warm);
+    border-bottom: 2px solid var(--orange);
     padding-bottom: 2px;
     transition: color .2s;
   }
-  .contact-email:hover { color: var(--ink); }
+  .contact-email:hover { color: var(--orange); }
 
   /* ── FOOTER ── */
   footer {
@@ -295,7 +332,7 @@
     .hero-text { justify-self: center; padding-right: 0; }
     .hero-text p { margin-left: auto; margin-right: auto; }
     .hero-image { justify-self: center; }
-    .hero-image img { max-width: 360px; }
+    .hero-image img { max-width: 300px; }
     .about-grid {
       grid-template-columns: 1fr;
       text-align: center;
@@ -304,6 +341,7 @@
     .cred-list { justify-content: center; }
     .gallery-row { grid-template-columns: 1fr; }
     .btn-outline { margin-left: 0; margin-top: .6rem; }
+    .quote-section blockquote::before { left: -.5rem; }
   }
 </style>
 </head>
@@ -322,27 +360,33 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <h1>Math tutoring that <em>actually clicks.</em></h1>
+    <h1>Math tutoring from a <em>local and licensed teacher.</em></h1>
     <p>Experienced teacher and career-switcher bringing 20+ years of real-world problem&#8209;solving into middle&nbsp;school math — right here in Northern&nbsp;Virginia.</p>
     <a href="mailto:ZJRTutoring@gmail.com" class="btn btn-primary">Get in Touch</a>
     <a href="#about" class="btn btn-outline">Learn More</a>
   </div>
   <div class="hero-image">
-    <img src="teaching.jpg" alt="Zack Rodman teaching math to students in the classroom">
+    <img src="headshot.jpg" alt="Zack Rodman, Math Tutor">
   </div>
 </section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <blockquote>My teaching approach is to start with the skills that form the foundation of higher level math, then work with students to attack their studies with confidence.</blockquote>
+  <div class="quote-attribution">— Zack Rodman</div>
+</div>
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-photo">
-      <img src="headshot.jpg" alt="Zack Rodman, Math Tutor">
+      <img src="teaching.jpg" alt="Zack Rodman teaching in the classroom">
     </div>
     <div class="about-content">
       <div class="section-label">About</div>
       <h2 class="section-title">Hi, I'm Zack.</h2>
-      <p>I hold a <strong>Virginia Secondary Mathematics teaching license</strong> and a Master of Education from Marymount University. Before entering the classroom, I spent two decades in analytics, consulting, and operations — so I know what it means to think through tough problems.</p>
-      <p>I've taught Math 7 and Math 8 in Falls Church City Public Schools, and I tutor students across grades 6–9 in the Arlington and NoVA area. My goal is straightforward: make math make sense.</p>
+      <p>I hold a <strong>Virginia Secondary Mathematics teaching license</strong> and a Master of Education from Marymount University. Before entering the classroom, I spent two decades in consulting, marketing and analytics — so I know how what it means to think through tough problems and what it takes to be successful.</p>
+      <p>I've taught Math 7 and Math 8 in Falls Church City Public Schools, and I tutor students across grades 6–9 in the Arlington and NoVA area. My goal is to help your student improve while feeling more confident in math class.</p>
       <div class="cred-list">
         <span class="cred">M.Ed., Secondary Mathematics</span>
         <span class="cred">VA Teaching License</span>
@@ -388,7 +432,7 @@
   <div class="section-label">In Action</div>
   <h2 class="section-title">Classroom &amp; Beyond</h2>
   <div class="gallery-row">
-    <img src="teaching.jpg" alt="Teaching percent problems on the board">
+    <img src="teaching.jpg" alt="Teaching math in the classroom">
     <img src="family.jpg" alt="Zack hiking with family in the mountains">
   </div>
 </section>
@@ -399,6 +443,7 @@
   <h2 class="section-title">Ready to get started?</h2>
   <p>I offer one-on-one and small-group sessions in Northern Virginia. Drop me a line and we'll find a time that works.</p>
   <a href="mailto:ZJRTutoring@gmail.com" class="contact-email">ZJRTutoring@gmail.com</a>
+  <p style="margin-top: 1.5rem; font-size: .9rem; color: var(--body-text);">Rates and references available upon request.</p>
 </section>
 
 <!-- FOOTER -->
